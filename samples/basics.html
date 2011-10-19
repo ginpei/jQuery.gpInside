@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+
+<!-- There are JavaScript sample codes in bottom. -->
+
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery.gpInside</title>
+  <style type="text/css">
+body {
+    font-family: "Times", "Times New Roman", serif;
+}
+pre {
+    background-color: #fffff0;
+    border: ridge 2px;
+    display: inline-block;
+    font-family: 'Courier', 'Courier New', monospace;
+    padding: 1em;
+}
+
+/* panel */
+#panel {
+    background-color: rgba(200,255,200,.5);
+    border: solid 3px #9c9;
+    display: none;
+    padding: 30px;
+    position: absolute;
+    white-space: nowrap;
+}
+  </style>
+</head>
+<body>
+  <h1>jQuery.gpInside</h1>
+  <div id="main">
+    <p>Contain target to show.</p>
+    <p>for: IE 6+, Firefox, Chrome, Safari, Opera</p>
+    <p>
+      <pre>$(elem).gpInside();
+$(elem).gpCenter();</pre>
+    </p>
+    <p>
+      <strong>Click</strong> anywhere to show a sample block.
+    </p>
+    <p>
+      See sample codes in HTML source,<br />
+      and more informations in: <a href="http://ginpen.com/jquery/gpinside/">Ginpen.com</a>.
+    </p>
+  </div>
+  <div id="panel">
+    <p>
+      Type:
+      <label><input name="type" type="radio" value="default" checked />Default</label>
+      <label><input name="type" type="radio" value="center" />Center</label>
+      <label><input name="type" type="radio" value="contextmenu" />Contextmenu</label>
+    </p>
+  </div>
+  <div>
+    <script src="jquery-1.6.2.min.js"></script>
+    <script src="../jquery.gpinside-1.0.js"></script>
+    <script>
+(function() {
+    var $panel = $('#panel');
+    $(document).click(function(event) {
+        $panel.gpInside({
+            type: $panel.find(':radio[name=type]:checked').val(),
+            left: event.pageX,
+            top: event.pageY
+        });
+    });
+}());
+    </script>
+  </div>
+</body>
+</html>
